@@ -7,7 +7,7 @@
     <Root>$(MSBuildProjectDirectory)\..</Root>
     <SolutionFile>$(Root)\infusionsoft-net.sln</SolutionFile>
     <MSBuildCommunityTasksPath>$(Root)\tools\msbuild.community.tasks</MSBuildCommunityTasksPath>
-    <OutPath>$(Root)\src\InfustionSoft\bin\$(Configuration)</OutPath>
+    <OutPath>$(Root)\src\InfusionSoft\bin\$(Configuration)</OutPath>
   	<ArtifactPath>$(Root)\output</ArtifactPath>
     <ILMergePath>$(Root)\packages\ILMerge.MSBuild.Tasks.1.0.0.3\tools</ILMergePath>
     <TargetPlatform>$(WinDir)\Microsoft.NET\Framework64\v4.0.30319</TargetPlatform>
