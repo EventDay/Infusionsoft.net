@@ -59,16 +59,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="Extensions\ContactServiceExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\DataServiceExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\EmailServiceExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\ExtendParameterBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="IMethodListener.cs" />
-    <Compile Include="Support\AddEmailTemplateMergeContext.cs" />
-    <Compile Include="Support\BasicFieldSetter.cs" />
-    <Compile Include="Support\ContainsValue.cs" />
-    <Compile Include="Support\ContentType.cs" />
-    <Compile Include="Support\CustomField.cs" />
-    <Compile Include="Support\CustomFieldType.cs" />
-    <Compile Include="Support\DataPage.cs" />
-    <Compile Include="Support\DefaultableDictionary.cs" />
-    <Compile Include="Support\DefaultValue.cs" />
     <Compile Include="Definition\ChargeInvoiceResult.cs" />
     <Compile Include="Definition\CreditCardData.cs" />
     <Compile Include="Definition\EmailTemplate.cs" />
@@ -86,56 +89,129 @@
     <Compile Include="Definition\IShippingServiceDefinition.cs" />
     <Compile Include="Definition\IWebFormServiceDefinition.cs" />
     <Compile Include="Definition\ValidateCreditCardResult.cs" />
-    <Compile Include="Support\DictionaryExtensions.cs" />
-    <Compile Include="Support\DupCheckType.cs" />
-    <Compile Include="Support\EmailSentType.cs" />
-    <Compile Include="Support\EndsWithValue.cs" />
-    <Compile Include="Support\Express.cs" />
-    <Compile Include="Extensions\ExtendParameterBuilder.cs" />
-    <Compile Include="Extensions\ContactServiceExtensions.cs" />
-    <Compile Include="Extensions\DataServiceExtensions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\EmailServiceExtensions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Support\FieldQuery.cs" />
-    <Compile Include="Support\FieldSetter.cs" />
-    <Compile Include="Support\GetAvailableMergeFieldsContext.cs" />
     <Compile Include="IAffiliateService.cs" />
-    <Compile Include="Support\IBasicFieldSetter.cs" />
     <Compile Include="IDiscountService.cs" />
-    <Compile Include="Support\IFieldQuery.cs" />
-    <Compile Include="Support\IFieldSetter.cs" />
     <Compile Include="IFileService.cs" />
     <Compile Include="IInfusionSoftClient.cs" />
     <Compile Include="IInvoiceService.cs" />
     <Compile Include="InfusionSoftClient.cs" />
-    <Compile Include="Support\InfusionsoftProxy.cs" />
     <Compile Include="IOrderService.cs" />
-    <Compile Include="Support\IParameterBuilder.cs" />
     <Compile Include="IProductService.cs" />
-    <Compile Include="Support\IProjection.cs" />
-    <Compile Include="Support\IQueryBuilder.cs" />
     <Compile Include="ISearchService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="IShippingService.cs" />
-    <Compile Include="Support\ITableFieldBuilder.cs" />
-    <Compile Include="Support\IValuePosition.cs" />
     <Compile Include="IWebFormService.cs" />
-    <Compile Include="Support\ParameterBuilder.cs" />
-    <Compile Include="Support\PasswordHasher.cs" />
-    <Compile Include="Support\Projection.cs" />
-    <Compile Include="Support\QueryBuilder.cs" />
     <Compile Include="IContactService.cs" />
     <Compile Include="IDataService.cs" />
     <Compile Include="IEmailService.cs" />
     <Compile Include="IInfusionSoftConfiguration.cs" />
     <Compile Include="InfusionSoftException.cs" />
-    <Compile Include="Support\ServiceBase.cs" />
-    <Compile Include="Support\StartsWithValue.cs" />
-    <Compile Include="Support\TableFieldSetter.cs" />
+    <Compile Include="ContentType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InfusionsoftProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PasswordHasher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ServiceBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InfusionSoftConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\AddEmailTemplateMergeContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\BasicFieldSetter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\ContainsValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\CustomField.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\CustomFieldType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\DataPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\DefaultableDictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\DefaultValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\DictionaryExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\DupCheckType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\EmailSentType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\EndsWithValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\Express.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\FieldQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\FieldSetter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\GetAvailableMergeFieldsContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\IBasicFieldSetter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\IFieldQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\IFieldSetter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\IParameterBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\IProjection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\IQueryBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\ITableFieldBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\IValuePosition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\ParameterBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\Projection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\QueryBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\StartsWithValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support\TableFieldSetter.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Support\TableMapper.cs" />
+    <Compile Include="Support\ValuePosition.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tables\ActionSequence.cs" />
     <Compile Include="Tables\Affiliate.cs" />
     <Compile Include="Tables\Campaign.cs" />
@@ -190,8 +266,6 @@
     <Compile Include="Tables\AccessAttribute.cs" />
     <Compile Include="Tables\ITable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Support\TemporaryInfusionSoftConfiguration.cs" />
-    <Compile Include="Support\ValuePosition.cs" />
     <Compile Include="Vendor.cs" />
     <Compile Include="Wrappers\AffiliateServiceWrapper.cs" />
     <Compile Include="Wrappers\ContactServiceWrapper.cs" />
