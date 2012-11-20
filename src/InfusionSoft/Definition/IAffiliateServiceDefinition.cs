@@ -18,19 +18,19 @@ namespace InfusionSoft.Definition
 {
     public interface IAffiliateServiceDefinition : IServiceDefinition
     {
-        [XmlRpcMethod("AffiliateService.affClawbacks")]
+        [XmlRpcMethod("APIAffiliateService.affClawbacks")]
         object AffClawbacks(string apiKey, int affiliateId, DateTime filterStartDate, DateTime filterEndDate);
 
-        [XmlRpcMethod("AffiliateService.affCommissions")]
+        [XmlRpcMethod("APIAffiliateService.affCommissions")]
         object AffCommissions(string apiKey, int affiliateId, DateTime filterStartDate, DateTime filterEndDate);
 
-        [XmlRpcMethod("AffiliateService.affPayouts")]
+        [XmlRpcMethod("APIAffiliateService.affPayouts")]
         object AffPayouts(string apiKey, int affiliateId, DateTime filterStartDate, DateTime filterEndDate);
 
-        [XmlRpcMethod("AffiliateService.affRunningTotals")]
+        [XmlRpcMethod("APIAffiliateService.affRunningTotals")]
         object AffRunningTotals(string apiKey, string[] affiliateIds);
 
-        [XmlRpcMethod("AffiliateService.affSummary")]
+        [XmlRpcMethod("APIAffiliateService.affSummary")]
         object AffSummary(string apiKey, int affiliateId, DateTime filterStartDate, DateTime filterEndDate);
     }
 }

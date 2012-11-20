@@ -17,40 +17,40 @@ namespace InfusionSoft.Definition
 {
     public interface IEmailServiceDefinition : IServiceDefinition
     {
-        [XmlRpcMethod("EmailService.addEmailTemplate")]
+        [XmlRpcMethod("APIEmailService.addEmailTemplate")]
         int AddEmailTemplate(string apiKey, string pieceTitle, string categories, string toAddress, string ccAddress,
                              string bccAddress, string subject, string textBody, string htmlBody, string contentType,
                              string mergeContext);
 
-        [XmlRpcMethod("EmailService.attachEmail")]
+        [XmlRpcMethod("APIEmailService.attachEmail")]
         bool AttachEmail(string apiKey, int contactId, string fromName, string fromAddress, string toAddress,
                          string ccAddresses, string bccAddresses, string contentType, string subject, string htmlBody,
                          string textBody, string header, string receivedDate, string sentDate, int emailSentType);
 
-        [XmlRpcMethod("EmailService.getAvailableMergeFields")]
+        [XmlRpcMethod("APIEmailService.getAvailableMergeFields")]
         string[] GetAvailableMergeFields(string apiKey, string mergeContext);
 
-        [XmlRpcMethod("EmailService.getEmailTemplate")]
+        [XmlRpcMethod("APIEmailService.getEmailTemplate")]
         EmailTemplate GetEmailTemplate(string apiKey, int templateId);
 
-        [XmlRpcMethod("EmailService.getOptStatus")]
+        [XmlRpcMethod("APIEmailService.getOptStatus")]
         int GetOptStatus(string apiKey, string email);
 
-        [XmlRpcMethod("EmailService.optIn")]
+        [XmlRpcMethod("APIEmailService.optIn")]
         bool OptIn(string apiKey, string email, string optInReason);
 
-        [XmlRpcMethod("EmailService.optOut")]
+        [XmlRpcMethod("APIEmailService.optOut")]
         bool OptOut(string apiKey, string email, string optOutreason);
 
-        [XmlRpcMethod("EmailService.sendEmail")]
+        [XmlRpcMethod("APIEmailService.sendEmail")]
         bool SendEmail(string apiKey, int[] contactList, string fromAddress, string toAddress, string ccAddresses,
                        string bccAddresses, string contentType, string subject, string htmlBody, string textBody,
                        int templateId);
 
-        [XmlRpcMethod("EmailService.sendTemplate")]
+        [XmlRpcMethod("APIEmailService.sendTemplate")]
         bool SendTemplate(string apiKey, int[] contactList, string templateId);
 
-        [XmlRpcMethod("EmailService.updateEmailTemplate")]
+        [XmlRpcMethod("APIEmailService.updateEmailTemplate")]
         bool UpdateEmailTemplate(string apiKey, int templateId, string pieceTitle, string category,
                                  string fromAddress, string toAddress, string ccAddress, string bccAddresses,
                                  string subject, string textBody, string htmlBody, string contentType,
