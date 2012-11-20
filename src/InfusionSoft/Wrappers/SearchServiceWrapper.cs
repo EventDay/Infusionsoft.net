@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class SearchServiceWrapper : ServiceBase<ISearchServiceDefinition>, ISearchService
     {
-        
-        public SearchServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public SearchServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         

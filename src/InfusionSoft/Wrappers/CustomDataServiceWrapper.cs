@@ -17,7 +17,8 @@ namespace InfusionSoft
     {
         private readonly PasswordHasher _hasher;
 
-        public CustomDataServiceWrapper(IInfusionSoftConfiguration configuration) : base(configuration)
+        public CustomDataServiceWrapper(IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
             _hasher = new PasswordHasher();
         }

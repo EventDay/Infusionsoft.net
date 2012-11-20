@@ -78,8 +78,9 @@ namespace InfusionSoft
             XmlRpcStruct data = query.Dictionary.AsXmlRpcStruct();
             string[] selectedFields = projection.Build();
 
-            IInfusionSoftConfiguration configuration = service.Configuration;
-            var wrapper = new CustomDataServiceWrapper(configuration);
+            var configuration = service.Configuration;
+            var methodListenerProvider = service.MethodListenerProvider;
+            var wrapper = new CustomDataServiceWrapper(configuration, methodListenerProvider);
 
             return wrapper.Invoke<IEnumerable<object>, T[]>(d => d.Query(configuration.ApiKey,
                                                                          typeof (T).Name, page.Size,
@@ -118,7 +119,7 @@ namespace InfusionSoft
             var projection = new Projection<T>();
             fieldSelection(projection);
 
-            var wrapper = new CustomDataServiceWrapper(service.Configuration);
+            var wrapper = new CustomDataServiceWrapper(service.Configuration, service.MethodListenerProvider);
 
             return wrapper.Invoke<IEnumerable<object>, T[]>(d => d.FindByField(service.Configuration.ApiKey,
                                                                                typeof (T).Name, page.Size,
@@ -153,10 +154,9 @@ namespace InfusionSoft
             var fieldSelection = new Projection<T>();
             projection(fieldSelection);
 
-            IInfusionSoftConfiguration configuration = service.Configuration;
-            var wrapper = new CustomDataServiceWrapper(configuration);
+            var wrapper = new CustomDataServiceWrapper(service.Configuration, service.MethodListenerProvider);
             return
-                wrapper.Invoke<object, T>(d => d.Load(configuration.ApiKey, typeof (T).Name, id, fieldSelection.Build()));
+                wrapper.Invoke<object, T>(d => d.Load(service.Configuration.ApiKey, typeof (T).Name, id, fieldSelection.Build()));
         }
 
         public static int Update<T>(this IDataService service, int id, Action<IFieldSetter<T>> setter) where T : ITable

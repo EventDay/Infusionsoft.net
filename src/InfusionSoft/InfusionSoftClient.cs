@@ -15,27 +15,30 @@ using System.Net;
 
 namespace InfusionSoft
 {
-    internal class InfusionSoftClient : IInfusionSoftClient
+    internal class InfusionSoftClient : IInfusionSoftClient, IMethodListenerProvider
     {
+        private IMethodListener _methodListener;
+
         public InfusionSoftClient(IInfusionSoftConfiguration configuration)
         {
             ServicePointManager.ServerCertificateValidationCallback +=
                 (sender, certificate, chain, sslpolicyerrors) => true;
 
             ApplicationName = configuration.ApplicationName;
+            MethodListener = new NullMethodListener();
 
-            AffiliateService = new AffiliateServiceWrapper(configuration);
-            ContactService = new ContactServiceWrapper(configuration);
-            DataService = new CustomDataServiceWrapper(configuration);
-            DiscountService = new DiscountServiceWrapper(configuration);
-            EmailService = new EmailServiceWrapper(configuration);
-            InvoiceService = new InvoiceServiceWrapper(configuration);
-            FileService = new FileServiceWrapper(configuration);
-            OrderService = new OrderServiceWrapper(configuration);
-            ProductService = new ProductServiceWrapper(configuration);
-            SearchService = new SearchServiceWrapper(configuration);
-            ShippingService = new ShippingServiceWrapper(configuration);
-            WebFormService = new WebFormServiceWrapper(configuration);
+            AffiliateService = new AffiliateServiceWrapper(configuration, this);
+            ContactService = new ContactServiceWrapper(configuration, this);
+            DataService = new CustomDataServiceWrapper(configuration, this);
+            DiscountService = new DiscountServiceWrapper(configuration, this);
+            EmailService = new EmailServiceWrapper(configuration, this);
+            InvoiceService = new InvoiceServiceWrapper(configuration, this);
+            FileService = new FileServiceWrapper(configuration, this);
+            OrderService = new OrderServiceWrapper(configuration, this);
+            ProductService = new ProductServiceWrapper(configuration, this);
+            SearchService = new SearchServiceWrapper(configuration, this);
+            ShippingService = new ShippingServiceWrapper(configuration, this);
+            WebFormService = new WebFormServiceWrapper(configuration, this);
         }
 
         public InfusionSoftClient(string application, string apiKey)
@@ -71,6 +74,22 @@ namespace InfusionSoft
 
         public IWebFormService WebFormService { get; private set; }
 
+        public IMethodListener MethodListener
+        {
+            get { return _methodListener; }
+            set
+            {
+                if(value == null)
+                    _methodListener = new NullMethodListener();
+                _methodListener = value;
+            }
+        }
+
         #endregion
+
+        public IMethodListener GetListener()
+        {
+            return MethodListener;
+        }
     }
 }

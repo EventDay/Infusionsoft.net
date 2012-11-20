@@ -12,6 +12,7 @@
 #endregion
 
 using System;
+using System.IO;
 using CookComputing.XmlRpc;
 using InfusionSoft.Definition;
 
@@ -22,11 +23,13 @@ namespace InfusionSoft
         private const string UriMask = "https://{0}.infusionsoft.com/api/xmlrpc";
         private const string UserAgent = "InfusionSoft .NET SDK";
         private readonly IInfusionSoftConfiguration _configuration;
+        private readonly IMethodListenerProvider _listenerProvider;
         private readonly Uri _uri;
 
-        public InfusionsoftProxy(IInfusionSoftConfiguration configuration)
+        public InfusionsoftProxy(IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider)
         {
             _configuration = configuration;
+            _listenerProvider = listenerProvider;
             _uri = new Uri(string.Format(UriMask, _configuration.ApplicationName));
         }
 
@@ -65,7 +68,7 @@ namespace InfusionSoft
             var proxy = (IXmlRpcProxy) definition;
 // ReSharper restore PossibleInvalidCastException
 
-            proxy.AttachLogger(new XmlRpcDebugLogger());
+            proxy.AttachLogger(new MethodListenerXmlRpcLogger(_listenerProvider.GetListener()));
 
             proxy.Url = _uri.AbsoluteUri;
             proxy.UserAgent = UserAgent;
@@ -106,5 +109,32 @@ namespace InfusionSoft
         }
 
         #endregion
+
+        class MethodListenerXmlRpcLogger : XmlRpcLogger
+        {
+            private readonly IMethodListener _listener;
+
+            public MethodListenerXmlRpcLogger(IMethodListener listener)
+            {
+                _listener = listener;
+            }
+
+            protected override void OnResponse(object sender, XmlRpcResponseEventArgs e)
+            {
+                _listener.OnResponse(DumpStream(e.ResponseStream));
+            }
+
+            protected override void OnRequest(object sender, XmlRpcRequestEventArgs e)
+            {
+                _listener.OnRequest(DumpStream(e.RequestStream));
+            }
+
+            private string DumpStream(Stream stm)
+            {
+                var s = new StreamReader(stm).ReadToEnd();
+                stm.Position = 0L;
+                return s;
+            }
+        }
     }
 }

@@ -21,10 +21,11 @@ namespace InfusionSoft
     {
         private readonly InfusionsoftProxy<TServiceDefinition> _proxy;
 
-        protected ServiceBase(IInfusionSoftConfiguration configuration)
+        protected ServiceBase(IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider)
         {
+            MethodListenerProvider = listenerProvider;
             Configuration = configuration;
-            _proxy = new InfusionsoftProxy<TServiceDefinition>(configuration);
+            _proxy = new InfusionsoftProxy<TServiceDefinition>(configuration, listenerProvider);
             ApiKey = configuration.ApiKey;
         }
 
@@ -61,5 +62,7 @@ namespace InfusionSoft
                 throw new InfusionSoftException(e.Message);
             }
         }
+
+        public IMethodListenerProvider MethodListenerProvider { get; private set; }
     }
 }

@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class ContactServiceWrapper : ServiceBase<IContactServiceDefinition>, IContactService
     {
-        
-        public ContactServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public ContactServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         

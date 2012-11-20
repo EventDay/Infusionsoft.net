@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class WebFormServiceWrapper : ServiceBase<IWebFormServiceDefinition>, IWebFormService
     {
-        
-        public WebFormServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public WebFormServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         

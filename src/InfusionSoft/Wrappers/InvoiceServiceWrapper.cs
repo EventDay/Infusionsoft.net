@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class InvoiceServiceWrapper : ServiceBase<IInvoiceServiceDefinition>, IInvoiceService
     {
-        
-        public InvoiceServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public InvoiceServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         

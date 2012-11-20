@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class OrderServiceWrapper : ServiceBase<IOrderServiceDefinition>, IOrderService
     {
-        
-        public OrderServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public OrderServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         

@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class DataServiceWrapper : ServiceBase<IDataServiceDefinition>, IDataService
     {
-        
-        public DataServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public DataServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         

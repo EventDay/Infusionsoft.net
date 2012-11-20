@@ -97,8 +97,11 @@ namespace Generator
 
             // Add parameters.
             constructor.Parameters.Add(new CodeParameterDeclarationExpression(typeof(IInfusionSoftConfiguration), "configuration"));
+            constructor.Parameters.Add(new CodeParameterDeclarationExpression(typeof (IMethodListenerProvider),
+                                                                              "listenerProvider"));
 
             constructor.BaseConstructorArgs.Add(new CodeArgumentReferenceExpression("configuration"));
+            constructor.BaseConstructorArgs.Add(new CodeArgumentReferenceExpression("listenerProvider"));
             
             target.Members.Add(constructor);
         }

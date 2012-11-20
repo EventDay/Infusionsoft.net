@@ -16,8 +16,8 @@ namespace InfusionSoft
     internal partial class AffiliateServiceWrapper : ServiceBase<IAffiliateServiceDefinition>, IAffiliateService
     {
         
-        public AffiliateServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+        public AffiliateServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) : 
+                base(configuration, listenerProvider)
         {
         }
         

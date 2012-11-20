@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="IMethodListener.cs" />
     <Compile Include="Support\AddEmailTemplateMergeContext.cs" />
     <Compile Include="Support\BasicFieldSetter.cs" />
     <Compile Include="Support\ContainsValue.cs" />

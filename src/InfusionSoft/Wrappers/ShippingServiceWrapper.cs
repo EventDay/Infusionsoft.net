@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class ShippingServiceWrapper : ServiceBase<IShippingServiceDefinition>, IShippingService
     {
-        
-        public ShippingServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public ShippingServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         

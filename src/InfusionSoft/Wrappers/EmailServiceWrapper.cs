@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class EmailServiceWrapper : ServiceBase<IEmailServiceDefinition>, IEmailService
     {
-        
-        public EmailServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public EmailServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         

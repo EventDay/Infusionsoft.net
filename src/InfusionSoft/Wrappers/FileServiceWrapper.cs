@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class FileServiceWrapper : ServiceBase<IFileServiceDefinition>, IFileService
     {
-        
-        public FileServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public FileServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         

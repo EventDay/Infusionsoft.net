@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class ProductServiceWrapper : ServiceBase<IProductServiceDefinition>, IProductService
     {
-        
-        public ProductServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public ProductServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         

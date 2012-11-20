@@ -16,5 +16,6 @@ namespace InfusionSoft
     public interface IService
     {
         IInfusionSoftConfiguration Configuration { get; }
+        IMethodListenerProvider MethodListenerProvider { get; }
     }
 }

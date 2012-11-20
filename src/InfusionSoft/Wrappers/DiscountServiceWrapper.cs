@@ -15,9 +15,9 @@ namespace InfusionSoft
     
     internal partial class DiscountServiceWrapper : ServiceBase<IDiscountServiceDefinition>, IDiscountService
     {
-        
-        public DiscountServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration) : 
-                base(configuration)
+
+        public DiscountServiceWrapper(InfusionSoft.IInfusionSoftConfiguration configuration, IMethodListenerProvider listenerProvider) :
+            base(configuration, listenerProvider)
         {
         }
         
