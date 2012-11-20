@@ -35,10 +35,11 @@
              Internalize="true" 
              DebugInfo="$(KeepPdb)"
              ExcludeFile="$(MSBuildProjectDirectory)\ilmerge-internalize-excludes.txt" 
-             OutputFile="$(ArtifactPath)\Infusionsoft.Net.dll" />
-             
-    <Message Text="Your assembly, sir. $(ArtifactPath)\Infusionsoft.Net.dll" />
-    
+             OutputFile="$(ArtifactPath)\Infusionsoft.Net.dll" />    
+  </Target>
+  
+  <Target Name="Tell" AfterTargets="build">
+    <Message Importance="High" Text="Your assembly, sir. $(ArtifactPath)\Infusionsoft.Net.dll" />
   </Target>
   
 </Project>
