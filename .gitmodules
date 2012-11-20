@@ -1,0 +1,3 @@
+[submodule "docs"]
+	path = docs
+	url = git://github.com/infusionsoft/Infusionsoft-API-Documentation.git

@@ -1,0 +1,15 @@
+obj
+bin
+App.config
+Web.config
+*.user
+*.suo
+output
+_ReSharper.*
+*.Resharper
+*.Cache
+*.cache
+~$*
+build/
+*.vssscc
+packages/*
