@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)'==''">debug</Configuration>
     <Version Condition="'$(Version)'==''">1.0.0.0</Version>
-    <Root>$(MSBuildProjectDirectory)\..</Root>
+    <Root>$([System.IO.Path]::GetFullPath($(MSBuildProjectDirectory)\..))</Root>
     <SolutionFile>$(Root)\infusionsoft-net.sln</SolutionFile>
     <MSBuildCommunityTasksPath>$(Root)\tools\msbuild.community.tasks</MSBuildCommunityTasksPath>
-    <OutPath>$(Root)\src\InfustionSoft\bin\$(Configuration)</OutPath>
+    <OutPath>$(Root)\src\InfusionSoft\bin\$(Configuration)</OutPath>
   	<ArtifactPath>$(Root)\output</ArtifactPath>
     <ILMergePath>$(Root)\packages\ILMerge.MSBuild.Tasks.1.0.0.3\tools</ILMergePath>
     <TargetPlatform>$(WinDir)\Microsoft.NET\Framework64\v4.0.30319</TargetPlatform>
@@ -35,8 +35,11 @@
              Internalize="true" 
              DebugInfo="$(KeepPdb)"
              ExcludeFile="$(MSBuildProjectDirectory)\ilmerge-internalize-excludes.txt" 
-             OutputFile="$(ArtifactPath)\Infusionsoft.Net.dll" />
-    
+             OutputFile="$(ArtifactPath)\Infusionsoft.Net.dll" />    
+  </Target>
+  
+  <Target Name="Tell" AfterTargets="build">
+    <Message Importance="High" Text="Your assembly, sir. $(ArtifactPath)\Infusionsoft.Net.dll" />
   </Target>
   
 </Project>
