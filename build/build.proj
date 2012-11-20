@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)'==''">debug</Configuration>
+    <Version Condition="'$(Version)'==''">1.0.0.0</Version>
+    <Root>$(MSBuildProjectDirectory)\..</Root>
+    <SolutionFile>$(Root)\infusionsoft-net.sln</SolutionFile>
+    <MSBuildCommunityTasksPath>$(Root)\tools\msbuild.community.tasks</MSBuildCommunityTasksPath>
+    <OutPath>$(Root)\src\InfustionSoft\bin\$(Configuration)</OutPath>
+  	<ArtifactPath>$(Root)\output</ArtifactPath>
+    <ILMergePath>$(Root)\packages\ILMerge.MSBuild.Tasks.1.0.0.3\tools</ILMergePath>
+    <TargetPlatform>$(WinDir)\Microsoft.NET\Framework64\v4.0.30319</TargetPlatform>
+
+    <KeepPdb Condition="'$(Configuration)'=='release'">false</KeepPdb>
+    <KeepPdb Condition="'$(Configuration)'!='release'">true</KeepPdb>
+  </PropertyGroup>
+
+  <UsingTask TaskName="ILMerge" AssemblyFile="$(ILMergePath)\ILMerge.MSBuild.Tasks.dll" />
+  
+  <Target Name="build" >
+
+    <RemoveDir Directories="$(ArtifactPath)" />
+    <MakeDir Directories="$(ArtifactPath)" />
+    
+    <MSBuild Projects="$(SolutionFile)" Properties="configuration=$(Configuration)" Targets="Build" />
+
+    <ItemGroup>
+      <MergeAssemblies Include="$(OutPath)\*.dll"  />      
+    </ItemGroup>
+    
+    <ILMerge LogFile="$(OutPath)\ilmerge.log"
+             InputAssemblies="@(MergeAssemblies)" 
+             TargetKind="Dll" 
+             Internalize="true" 
+             DebugInfo="$(KeepPdb)"
+             ExcludeFile="$(MSBuildProjectDirectory)\ilmerge-internalize-excludes.txt" 
+             OutputFile="$(ArtifactPath)\Infusionsoft.Net.dll" />
+    
+  </Target>
+  
+</Project>
