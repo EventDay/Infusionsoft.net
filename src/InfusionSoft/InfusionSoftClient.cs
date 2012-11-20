@@ -79,7 +79,7 @@ namespace InfusionSoft
             get { return _methodListener; }
             set
             {
-                if(value == null)
+                if (value == null)
                     _methodListener = new NullMethodListener();
                 _methodListener = value;
             }
@@ -87,7 +87,7 @@ namespace InfusionSoft
 
         #endregion
 
-        public IMethodListener GetListener()
+        IMethodListener IMethodListenerProvider.GetListener()
         {
             return MethodListener;
         }
