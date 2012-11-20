@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)'==''">debug</Configuration>
     <Version Condition="'$(Version)'==''">1.0.0.0</Version>
-    <Root>$(MSBuildProjectDirectory)\..</Root>
+    <Root>$([System.IO.Path]::GetFullPath($(MSBuildProjectDirectory)\..))</Root>
     <SolutionFile>$(Root)\infusionsoft-net.sln</SolutionFile>
     <MSBuildCommunityTasksPath>$(Root)\tools\msbuild.community.tasks</MSBuildCommunityTasksPath>
     <OutPath>$(Root)\src\InfusionSoft\bin\$(Configuration)</OutPath>
@@ -36,6 +36,8 @@
              DebugInfo="$(KeepPdb)"
              ExcludeFile="$(MSBuildProjectDirectory)\ilmerge-internalize-excludes.txt" 
              OutputFile="$(ArtifactPath)\Infusionsoft.Net.dll" />
+             
+    <Message Text="Your assembly, sir. $(ArtifactPath)\Infusionsoft.Net.dll" />
     
   </Target>
   
