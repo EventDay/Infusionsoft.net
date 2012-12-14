@@ -118,7 +118,7 @@
     <Compile Include="ServiceBase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="InfusionSoftConfiguration.cs">
+    <Compile Include="CustomerInfusionSoftConfiguration.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Support\AddEmailTemplateMergeContext.cs">
@@ -267,6 +267,7 @@
     <Compile Include="Tables\ITable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vendor.cs" />
+    <Compile Include="VendorInfusionSoftConfiguration.cs" />
     <Compile Include="Wrappers\AffiliateServiceWrapper.cs" />
     <Compile Include="Wrappers\ContactServiceWrapper.cs" />
     <Compile Include="Wrappers\CustomDataServiceWrapper.cs" />

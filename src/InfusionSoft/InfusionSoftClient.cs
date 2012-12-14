@@ -21,6 +21,7 @@ namespace InfusionSoft
 
         public InfusionSoftClient(IInfusionSoftConfiguration configuration)
         {
+            Configuration = configuration;
             ServicePointManager.ServerCertificateValidationCallback +=
                 (sender, certificate, chain, sslpolicyerrors) => true;
 
@@ -39,11 +40,6 @@ namespace InfusionSoft
             SearchService = new SearchServiceWrapper(configuration, this);
             ShippingService = new ShippingServiceWrapper(configuration, this);
             WebFormService = new WebFormServiceWrapper(configuration, this);
-        }
-
-        public InfusionSoftClient(string application, string apiKey)
-            : this(new InfusionSoftConfiguration(application, apiKey))
-        {
         }
 
         #region IInfusionSoftClient Members
@@ -86,6 +82,8 @@ namespace InfusionSoft
         }
 
         #endregion
+
+        public IInfusionSoftConfiguration Configuration { get; private set; }
 
         IMethodListener IMethodListenerProvider.GetListener()
         {

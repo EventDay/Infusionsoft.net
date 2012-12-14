@@ -16,6 +16,6 @@ namespace InfusionSoft
     public interface IInfusionSoftConfiguration
     {
         string ApplicationName { get; }
-        string ApiKey { get; }
+        string GetApiKey();
     }
 }

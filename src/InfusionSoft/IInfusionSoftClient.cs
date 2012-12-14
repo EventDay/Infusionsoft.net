@@ -13,6 +13,12 @@
 
 namespace InfusionSoft
 {
+    public enum ClientType
+    {
+        Customer,
+        Vendor
+    }
+
     public interface IInfusionSoftClient
     {
         IContactService ContactService { get; }
@@ -29,5 +35,6 @@ namespace InfusionSoft
         IShippingService ShippingService { get; }
         IWebFormService WebFormService { get; }
         IMethodListener MethodListener { get; set; }
+        IInfusionSoftConfiguration Configuration { get; }
     }
 }

@@ -82,7 +82,7 @@ namespace InfusionSoft
             var methodListenerProvider = service.MethodListenerProvider;
             var wrapper = new CustomDataServiceWrapper(configuration, methodListenerProvider);
 
-            return wrapper.Invoke<IEnumerable<object>, T[]>(d => d.Query(configuration.ApiKey,
+            return wrapper.Invoke<IEnumerable<object>, T[]>(d => d.Query(configuration.GetApiKey(),
                                                                          typeof (T).Name, page.Size,
                                                                          page.Number, data, selectedFields));
         }
@@ -121,7 +121,7 @@ namespace InfusionSoft
 
             var wrapper = new CustomDataServiceWrapper(service.Configuration, service.MethodListenerProvider);
 
-            return wrapper.Invoke<IEnumerable<object>, T[]>(d => d.FindByField(service.Configuration.ApiKey,
+            return wrapper.Invoke<IEnumerable<object>, T[]>(d => d.FindByField(service.Configuration.GetApiKey(),
                                                                                typeof (T).Name, page.Size,
                                                                                page.Number,
                                                                                fieldQuery.Name,
@@ -156,7 +156,7 @@ namespace InfusionSoft
 
             var wrapper = new CustomDataServiceWrapper(service.Configuration, service.MethodListenerProvider);
             return
-                wrapper.Invoke<object, T>(d => d.Load(service.Configuration.ApiKey, typeof (T).Name, id, fieldSelection.Build()));
+                wrapper.Invoke<object, T>(d => d.Load(service.Configuration.GetApiKey(), typeof (T).Name, id, fieldSelection.Build()));
         }
 
         public static int Update<T>(this IDataService service, int id, Action<IFieldSetter<T>> setter) where T : ITable

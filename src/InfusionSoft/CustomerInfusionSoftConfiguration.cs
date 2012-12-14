@@ -13,9 +13,9 @@
 
 namespace InfusionSoft
 {
-    internal class InfusionSoftConfiguration : IInfusionSoftConfiguration
+    internal class CustomerInfusionSoftConfiguration : IInfusionSoftConfiguration
     {
-        public InfusionSoftConfiguration(string appName, string key)
+        public CustomerInfusionSoftConfiguration(string appName, string key)
         {
             ApplicationName = appName;
             ApiKey = key;
@@ -25,7 +25,12 @@ namespace InfusionSoft
 
         public string ApplicationName { get; private set; }
 
-        public string ApiKey { get; private set; }
+        internal string ApiKey;
+
+        public virtual string GetApiKey()
+        {
+            return ApiKey;
+        }
 
         #endregion
     }

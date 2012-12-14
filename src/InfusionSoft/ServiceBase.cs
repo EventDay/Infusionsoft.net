@@ -26,7 +26,7 @@ namespace InfusionSoft
             MethodListenerProvider = listenerProvider;
             Configuration = configuration;
             _proxy = new InfusionsoftProxy<TServiceDefinition>(configuration, listenerProvider);
-            ApiKey = configuration.ApiKey;
+            ApiKey = configuration.GetApiKey();
         }
 
         public IInfusionSoftConfiguration Configuration { get; set; }

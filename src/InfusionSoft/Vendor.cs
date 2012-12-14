@@ -24,9 +24,15 @@ namespace InfusionSoft
 
         public IInfusionSoftClient Connect(string application, string username, string password)
         {
-            var client = new InfusionSoftClient(application, _apiKey);
-            string key = client.DataService.GetTemporaryKey(username, password);
-            return new InfusionSoftClient(application, key);
+            var client = new InfusionSoftClient(new CustomerInfusionSoftConfiguration(application, _apiKey));
+            var key = GetApiKey(username, password, client);
+
+            return new InfusionSoftClient(new VendorInfusionSoftConfiguration(application, key, () => GetApiKey(username, password, client)));
+        }
+
+        private static string GetApiKey(string username, string password, InfusionSoftClient client)
+        {
+            return client.DataService.GetTemporaryKey(username, password);
         }
     }
 }

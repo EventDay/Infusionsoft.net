@@ -26,7 +26,8 @@ namespace InfusionSoft
 
         public IInfusionSoftClient Connect()
         {
-            return new InfusionSoftClient(_application, _apiKey);
+            var configuration = new CustomerInfusionSoftConfiguration(_application, _apiKey);
+            return new InfusionSoftClient(configuration);
         }
     }
 }
