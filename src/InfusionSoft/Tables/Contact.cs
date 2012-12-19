@@ -13,12 +13,44 @@
 
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using CookComputing.XmlRpc;
 
 namespace InfusionSoft.Tables
 {
+    public abstract class Table : DynamicObject, ITable
+    {
+        private readonly IDictionary<string, object> _customFields;
+
+        protected Table()
+        {
+            _customFields = new Dictionary<string, object>();
+        }
+
+        public override bool TryGetMember(GetMemberBinder binder, out object result)
+        {
+            return _customFields.TryGetValue(binder.Name, out result);
+        }
+
+        public override bool TrySetMember(SetMemberBinder binder, object value)
+        {
+            _customFields[binder.Name] = value;
+            return true;
+        }
+
+        internal void SetCustomField(string name, object value)
+        {
+            _customFields[name.TrimStart('_')] = value;
+        }
+
+        public IDictionary<string, object> CustomFields
+        {
+            get { return _customFields; }
+        }
+    }
+
     [XmlRpcMissingMapping(MappingAction.Ignore)]
-    public class Contact : ITable
+    public class Contact : Table
     {
         private static readonly IEqualityComparer<Contact> IdComparerInstance = new IdEqualityComparer();
 
@@ -333,7 +365,7 @@ namespace InfusionSoft.Tables
         [XmlRpcMember("ZipFour3")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
         public string ZipFour3 { get; set; }
-
+        
         public static IEqualityComparer<Contact> IdComparer
         {
             get { return IdComparerInstance; }

@@ -45,8 +45,7 @@ namespace InfusionSoft
         /// <typeparam name="TResponse"></typeparam>
         /// <param name="method"></param>
         /// <returns></returns>
-        protected internal TResponse Invoke<TDefinitionResponse, TResponse>(
-            Func<TServiceDefinition, TDefinitionResponse> method)
+        protected internal TResponse Invoke<TDefinitionResponse, TResponse>(Func<TServiceDefinition, TDefinitionResponse> method)
         {
             return TryInvoke(() => _proxy.Invoke<TDefinitionResponse, TResponse>(method));
         }

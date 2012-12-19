@@ -15,6 +15,7 @@ using System;
 using System.IO;
 using CookComputing.XmlRpc;
 using InfusionSoft.Definition;
+using XmlRpcResponseDeserializer = InfusionSoft.Serialization.XmlRpcResponseDeserializer;
 
 namespace InfusionSoft
 {
@@ -47,8 +48,8 @@ namespace InfusionSoft
 
             XmlRpcResponseEventHandler responseHandler = (sender, args) =>
             {
-                var deserializer1 = new XmlRpcResponseDeserializer();
-                XmlRpcResponse res = deserializer1.DeserializeResponse(args.ResponseStream, typeof (TResponse));
+                var deserializer = new XmlRpcResponseDeserializer();
+                XmlRpcResponse res = deserializer.DeserializeResponse(args.ResponseStream, typeof (TResponse));
                 response = (TResponse) res.retVal;
             };
 
@@ -136,5 +137,7 @@ namespace InfusionSoft
                 return s;
             }
         }
+
+
     }
 }

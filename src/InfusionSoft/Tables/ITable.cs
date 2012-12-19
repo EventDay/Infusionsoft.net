@@ -11,9 +11,11 @@
 
 #endregion
 
+using System.Dynamic;
+
 namespace InfusionSoft.Tables
 {
-    public interface ITable
+    public interface ITable : IDynamicMetaObjectProvider
     {
     }
 }

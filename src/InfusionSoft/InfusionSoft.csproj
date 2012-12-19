@@ -187,9 +187,6 @@
     <Compile Include="Support\IQueryBuilder.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Support\ITableFieldBuilder.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Support\IValuePosition.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -202,6 +199,8 @@
     <Compile Include="Support\QueryBuilder.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Support\Serialization\XmlRpcDeserializer.cs" />
+    <Compile Include="Support\Serialization\XmlRpcResponseDeserializer.cs" />
     <Compile Include="Support\StartsWithValue.cs">
       <SubType>Code</SubType>
     </Compile>

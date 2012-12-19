@@ -71,7 +71,13 @@ namespace InfusionSoft
                                                     Action<IQueryBuilder<Contact>> queryBuilder,
                                                     Action<IProjection<Contact>> projection)
         {
-            var serviceAccessor = new InfusionSoftClient(service.Configuration);
+            IMethodListener listener = service.MethodListenerProvider.GetListener();
+
+            var serviceAccessor = new InfusionSoftClient(service.Configuration)
+                                  {
+                                      MethodListener = listener
+                                  };
+            
             IDataService dataService = serviceAccessor.DataService;
 
             var results = new HashSet<Contact>(Contact.IdComparer);

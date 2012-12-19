@@ -29,5 +29,6 @@ namespace InfusionSoft
         IProjection<T> IncludeCustomField(string property);
 
         IProjection<T> IncludeNamed(string property);
+        IProjection<T> Ignore<TV>(Expression<Func<T, TV>> expression);
     }
 }

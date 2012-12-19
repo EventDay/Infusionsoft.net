@@ -16,7 +16,7 @@ using CookComputing.XmlRpc;
 namespace InfusionSoft.Tables
 {
     [XmlRpcMissingMapping(MappingAction.Ignore)]
-    public class ContactGroup : ITable
+    public class ContactGroup : Table
     {
         [XmlRpcMember("Id")]
         [Access(Access.Read)]

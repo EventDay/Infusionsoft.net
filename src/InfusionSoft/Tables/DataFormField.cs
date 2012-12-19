@@ -16,7 +16,7 @@ using CookComputing.XmlRpc;
 namespace InfusionSoft.Tables
 {
     [XmlRpcMissingMapping(MappingAction.Ignore)]
-    public class DataFormField : ITable
+    public class DataFormField : Table
     {
         [XmlRpcMember("DataType")]
         [Access(Access.Read)]
