@@ -15,7 +15,7 @@ using System;
 
 namespace InfusionSoft.Tables
 {
-    [AttributeUsage(AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class AccessAttribute : Attribute
     {
         public AccessAttribute(Access access)

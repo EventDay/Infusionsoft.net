@@ -17,6 +17,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using CookComputing.XmlRpc;
+using InfusionSoft.Tables;
 
 namespace InfusionSoft
 {
@@ -61,13 +62,27 @@ namespace InfusionSoft
         {
             _properties.Clear();
             var infos = typeof (T).GetProperties()
-                          .Where(p => !p.Name.Equals("CustomFields") && !p.Name.EndsWith("Comparer"));
+                                  .Where(p => !p.Name.Equals("CustomFields") && !p.Name.EndsWith("Comparer"))
+                                  .Where(p =>
+                                      {
+                                          var attributes = p.GetCustomAttributes(typeof (AccessAttribute), false);
+                                          if (!attributes.Any())
+                                              return false;
+
+                                          var attribute = attributes.Cast<AccessAttribute>().First();
+
+                                          return attribute.Access.HasFlag(Access.Read);
+                                      });
+
             _properties.UnionWith(infos);
             return this;
         }
 
         public string[] Build()
         {
+            if (_properties.Count == 0)
+                IncludeAll();
+
             var set = new HashSet<string>(_properties.Select(GetXmlRpcMemberName));
             set.UnionWith(_dynamicProperties);
             return set.Except(_ignores).ToArray();
