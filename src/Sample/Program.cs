@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (c) 2012, EventDay
+// Copyright (c) 2013, EventDay
 // All rights reserved.
 // 
 // Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -31,10 +31,10 @@ namespace Sample
 
             //UPDATE a contact
             Console.Out.WriteLine(client.ContactService.Update(105, setter =>
-            {
-                setter.Set(c => c.FirstName, "Joe");
-                setter.Set(c => c.LastName, "Bobertson");
-            }));
+                {
+                    setter.Set(c => c.FirstName, "Joe");
+                    setter.Set(c => c.LastName, "Bobertson");
+                }));
 
             //Find contacts dotnet style
             const string email = "chris.martin@eventday.com";
