@@ -12,6 +12,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using CookComputing.XmlRpc;
 
 namespace InfusionSoft.Definition
@@ -59,7 +60,7 @@ namespace InfusionSoft.Definition
         double CalculateAmountOwed(string apiKey, int invoiceId);
 
         [XmlRpcMethod("InvoiceService.getAllPaymentOptions")]
-        object GetAllPaymentOptions(string apiKey);
+        XmlRpcStruct GetAllPaymentOptions(string apiKey);
 
         [XmlRpcMethod("InvoiceService.getPayments")]
         object GetPayments(string apiKey, int invoiceId);

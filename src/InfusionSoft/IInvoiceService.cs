@@ -22,6 +22,8 @@
 
 using System;
 using System.Collections.Generic;
+using CookComputing.XmlRpc;
+using InfusionSoft.Definition;
 
 
 namespace InfusionSoft
@@ -50,8 +52,8 @@ namespace InfusionSoft
         bool AddPaymentPlan(int invoiceId, bool autoCharge, int creditCardId, int merchantAccountId, int daysBetweenRetry, int maxRetry, double initialPmtAmt, System.DateTime initialPmtDate, System.DateTime planStartDate, int numPmts, int daysBetweenPmts);
         
         double CalculateAmountOwed(int invoiceId);
-        
-        object GetAllPaymentOptions();
+
+        IDictionary<string, object> GetAllPaymentOptions();
         
         object GetPayments(int invoiceId);
         

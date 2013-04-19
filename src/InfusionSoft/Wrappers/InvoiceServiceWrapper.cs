@@ -20,6 +20,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.Linq;
+using CookComputing.XmlRpc;
 using InfusionSoft.Definition;
 
 
@@ -84,12 +87,13 @@ namespace InfusionSoft
         {
             return Invoke(d => d.CalculateAmountOwed(ApiKey, invoiceId));
         }
-        
-        public virtual object GetAllPaymentOptions()
+
+        public virtual IDictionary<string, object> GetAllPaymentOptions()
         {
-            return Invoke(d => d.GetAllPaymentOptions(ApiKey));
+            var options = Invoke(d => d.GetAllPaymentOptions(ApiKey));
+            return options.Keys.Cast<string>().ToDictionary(key => key, key => options[key]);
         }
-        
+
         public virtual object GetPayments(int invoiceId)
         {
             return Invoke(d => d.GetPayments(ApiKey, invoiceId));
