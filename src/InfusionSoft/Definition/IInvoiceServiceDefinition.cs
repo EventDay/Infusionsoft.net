@@ -86,5 +86,8 @@ namespace InfusionSoft.Definition
         [XmlRpcMethod("InvoiceService.addOrderCommissionOverride")]
         bool AddOrderCommissionOverride(string apiKey, int invoiceId, int affiliateId, int productId, int percentage,
                                         double amount, int payoutType, string description, DateTime date);
+
+        [XmlRpcMethod("InvoiceService.deleteInvoice")]
+        bool DeleteInvoice(string apiKey, int invoiceId);
     }
 }

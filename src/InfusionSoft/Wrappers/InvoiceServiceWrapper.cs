@@ -133,5 +133,10 @@ namespace InfusionSoft
         {
             return Invoke(d => d.AddOrderCommissionOverride(ApiKey, invoiceId, affiliateId, productId, percentage, amount, payoutType, description, date));
         }
+
+        public virtual bool DeleteInvoice(int invoiceId)
+        {
+            return Invoke(d => d.DeleteInvoice(ApiKey, invoiceId));
+        }
     }
 }

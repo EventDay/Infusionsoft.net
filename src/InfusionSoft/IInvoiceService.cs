@@ -70,5 +70,7 @@ namespace InfusionSoft
         bool UpdateJobRecurringNextBillDate(int recurringOrderId, System.DateTime nextBillDate);
         
         bool AddOrderCommissionOverride(int invoiceId, int affiliateId, int productId, int percentage, double amount, int payoutType, string description, System.DateTime date);
+
+        bool DeleteInvoice(int invoiceId);
     }
 }
