@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using InfusionSoft.Definition;
 
 
 namespace InfusionSoft
@@ -53,7 +54,7 @@ namespace InfusionSoft
         
         int RescheduleCampaignStep(int[] contactIds, int sequenceStepId);
         
-        bool RunActionSequence(int contactId, int actionSetId);
+        RunActionSequenceResult[] RunActionSequence(int contactId, int actionSetId);
         
         int AddWithDupCheck(System.Collections.IDictionary data, string dupCheckType);
         

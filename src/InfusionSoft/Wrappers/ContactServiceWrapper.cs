@@ -89,8 +89,8 @@ namespace InfusionSoft
         {
             return Invoke(d => d.RescheduleCampaignStep(ApiKey, contactIds, sequenceStepId));
         }
-        
-        public virtual bool RunActionSequence(int contactId, int actionSetId)
+
+        public virtual RunActionSequenceResult[] RunActionSequence(int contactId, int actionSetId)
         {
             return Invoke(d => d.RunActionSequence(ApiKey, contactId, actionSetId));
         }

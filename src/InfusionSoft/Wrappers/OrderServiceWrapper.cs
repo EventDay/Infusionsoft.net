@@ -34,8 +34,8 @@ namespace InfusionSoft
                 base(configuration, listenerProvider)
         {
         }
-        
-        public virtual object PlaceOrder(int contactId, int creditCardId, int payPlanId, int[] productIds, int[] subscriptionPlanIds, bool processSpecials, string[] promoCodes)
+
+        public virtual PlaceOrderResult PlaceOrder(int contactId, int creditCardId, int payPlanId, int[] productIds, int[] subscriptionPlanIds, bool processSpecials, string[] promoCodes)
         {
             return Invoke(d => d.PlaceOrder(ApiKey, contactId, creditCardId, payPlanId, productIds, subscriptionPlanIds, processSpecials, promoCodes));
         }

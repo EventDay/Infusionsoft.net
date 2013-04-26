@@ -53,7 +53,7 @@ namespace InfusionSoft.Definition
         int RescheduleCampaignStep(string apiKey, int[] contactIds, int sequenceStepId);
 
         [XmlRpcMethod("ContactService.runActionSequence")]
-        bool RunActionSequence(string apiKey, int contactId, int actionSetId);
+        RunActionSequenceResult[] RunActionSequence(string apiKey, int contactId, int actionSetId);
 
         [XmlRpcMethod("ContactService.addWithDupCheck")]
         int AddWithDupCheck(string apiKey, IDictionary data, string dupCheckType);

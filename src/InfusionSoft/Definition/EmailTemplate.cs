@@ -26,4 +26,11 @@ namespace InfusionSoft.Definition
         public ContentType ContentType { get; set; }
         public string FromAddress { get; set; }
     }
+
+    public class RunActionSequenceResult
+    {
+        public string Action { get; set; }
+        public string Message { get; set; }
+        public bool IsError { get; set; }
+    }
 }

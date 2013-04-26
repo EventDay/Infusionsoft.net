@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using InfusionSoft.Definition;
 
 
 namespace InfusionSoft
@@ -30,7 +31,7 @@ namespace InfusionSoft
     
     public interface IOrderService : InfusionSoft.IService
     {
-        
-        object PlaceOrder(int contactId, int creditCardId, int payPlanId, int[] productIds, int[] subscriptionPlanIds, bool processSpecials, string[] promoCodes);
+
+        PlaceOrderResult PlaceOrder(int contactId, int creditCardId, int payPlanId, int[] productIds, int[] subscriptionPlanIds, bool processSpecials, string[] promoCodes);
     }
 }

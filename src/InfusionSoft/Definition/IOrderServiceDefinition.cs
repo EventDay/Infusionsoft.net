@@ -18,7 +18,17 @@ namespace InfusionSoft.Definition
     public interface IOrderServiceDefinition : IServiceDefinition
     {
         [XmlRpcMethod("OrderService.placeOrder")]
-        object PlaceOrder(string apiKey, int contactId, int creditCardId, int payPlanId, int[] productIds,
+        PlaceOrderResult PlaceOrder(string apiKey, int contactId, int creditCardId, int payPlanId, int[] productIds,
                           int[] subscriptionPlanIds, bool processSpecials, string[] promoCodes);
+    }
+
+    public class PlaceOrderResult
+    {
+        public bool Successful { get; set; }
+        public string Message { get; set; }
+        public string RefNum { get; set; }
+        public int OrderId { get; set; }
+        public int InvoiceId { get; set; }
+        public string Code { get; set; }
     }
 }
