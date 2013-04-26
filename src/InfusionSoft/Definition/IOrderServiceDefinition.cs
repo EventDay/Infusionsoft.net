@@ -24,7 +24,7 @@ namespace InfusionSoft.Definition
 
     public class PlaceOrderResult
     {
-        public bool Successful { get; set; }
+        public string Successful { get; set; }
         public string Message { get; set; }
         public string RefNum { get; set; }
         public int OrderId { get; set; }
