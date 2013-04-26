@@ -27,8 +27,8 @@ namespace InfusionSoft.Definition
         public string Successful { get; set; }
         public string Message { get; set; }
         public string RefNum { get; set; }
-        public int OrderId { get; set; }
-        public int InvoiceId { get; set; }
+        public string OrderId { get; set; }
+        public string InvoiceId { get; set; }
         public string Code { get; set; }
     }
 }
