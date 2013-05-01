@@ -11,6 +11,7 @@
 
 #endregion
 
+using System;
 using CookComputing.XmlRpc;
 
 namespace InfusionSoft.Tables
@@ -64,7 +65,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("Contact.Anniversary")]
         [Access(Access.Read)]
-        public string ContactAnniversary { get; set; }
+        public DateTime ContactAnniversary { get; set; }
 
         [XmlRpcMember("Contact.AssistantName")]
         [Access(Access.Read)]

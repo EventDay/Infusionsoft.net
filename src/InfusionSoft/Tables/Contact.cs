@@ -84,7 +84,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("Anniversary")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
-        public string Anniversary { get; set; }
+        public DateTime Anniversary { get; set; }
 
         [XmlRpcMember("AssistantName")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
