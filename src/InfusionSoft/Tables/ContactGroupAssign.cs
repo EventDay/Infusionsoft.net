@@ -81,7 +81,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("Contact.Birthday")]
         [Access(Access.Read)]
-        public string ContactBirthday { get; set; }
+        public DateTime ContactBirthday { get; set; }
 
         [XmlRpcMember("Contact.City")]
         [Access(Access.Read)]
