@@ -11,6 +11,7 @@
 
 #endregion
 
+using System;
 using CookComputing.XmlRpc;
 
 namespace InfusionSoft.Tables
@@ -32,11 +33,11 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("DateSet")]
         [Access(Access.Add | Access.Read)]
-        public string DateSet { get; set; }
+        public DateTime DateSet { get; set; }
 
         [XmlRpcMember("DateExpires")]
         [Access(Access.Add | Access.Read)]
-        public string DateExpires { get; set; }
+        public DateTime DateExpires { get; set; }
 
         [XmlRpcMember("IPAddress")]
         [Access(Access.Add | Access.Read)]

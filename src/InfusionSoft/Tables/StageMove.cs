@@ -11,6 +11,7 @@
 
 #endregion
 
+using System;
 using CookComputing.XmlRpc;
 
 namespace InfusionSoft.Tables
@@ -48,7 +49,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("DateCreated")]
         [Access(Access.Read)]
-        public string DateCreated { get; set; }
+        public DateTime DateCreated { get; set; }
 
         [XmlRpcMember("UserId")]
         [Access(Access.Read)]

@@ -11,6 +11,7 @@
 
 #endregion
 
+using System;
 using CookComputing.XmlRpc;
 
 namespace InfusionSoft.Tables
@@ -28,7 +29,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("DateDue")]
         [Access(Access.Read)]
-        public string DateDue { get; set; }
+        public DateTime DateDue { get; set; }
 
         [XmlRpcMember("AmtDue")]
         [Access(Access.Read)]

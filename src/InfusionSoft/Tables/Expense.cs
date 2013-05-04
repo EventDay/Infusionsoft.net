@@ -41,6 +41,6 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("DateIncurred")]
         [Access(Access.Read)]
-        public string DateIncurred { get; set; }
+        public DateTime DateIncurred { get; set; }
     }
 }

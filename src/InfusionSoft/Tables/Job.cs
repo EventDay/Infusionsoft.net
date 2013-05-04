@@ -11,6 +11,7 @@
 
 #endregion
 
+using System;
 using CookComputing.XmlRpc;
 
 namespace InfusionSoft.Tables
@@ -32,11 +33,11 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("StartDate")]
         [Access(Access.Edit | Access.Add | Access.Read)]
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [XmlRpcMember("DueDate")]
         [Access(Access.Edit | Access.Add | Access.Read)]
-        public string DueDate { get; set; }
+        public DateTime DueDate { get; set; }
 
         [XmlRpcMember("JobNotes")]
         [Access(Access.Edit | Access.Add | Access.Read)]
@@ -52,7 +53,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("DateCreated")]
         [Access(Access.Read)]
-        public string DateCreated { get; set; }
+        public DateTime DateCreated { get; set; }
 
         [XmlRpcMember("JobRecurringId")]
         [Access(Access.Read)]
