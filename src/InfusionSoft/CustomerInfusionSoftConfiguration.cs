@@ -17,7 +17,7 @@ namespace InfusionSoft
     {
         public CustomerInfusionSoftConfiguration(string appName, string key)
         {
-            ApplicationName = appName;
+            ApplicationName = appName.ToLowerInvariant();
             ApiKey = key;
         }
 
