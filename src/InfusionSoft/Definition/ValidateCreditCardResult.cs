@@ -15,7 +15,22 @@ namespace InfusionSoft.Definition
 {
     public class ValidateCreditCardResult
     {
+        public ValidateCreditCardResult(UntypedValidateCreditCardResult untyped)
+        {
+            Message = untyped.Message;
+            
+            bool valid;
+            bool.TryParse(untyped.Valid, out valid);
+            Valid = valid;
+        }
+
         public bool Valid { get; set; }
+        public string Message { get; set; }
+    }
+
+    public class UntypedValidateCreditCardResult
+    {
+        public string Valid { get; set; }
         public string Message { get; set; }
     }
 }

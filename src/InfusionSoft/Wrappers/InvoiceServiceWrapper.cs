@@ -111,14 +111,16 @@ namespace InfusionSoft
         
         public virtual InfusionSoft.Definition.ValidateCreditCardResult ValidateCreditCard(int creditCardId)
         {
-            return Invoke(d => d.ValidateCreditCard(ApiKey, creditCardId));
+            var untyped = Invoke(d => d.ValidateCreditCard(ApiKey, creditCardId));
+            return new ValidateCreditCardResult(untyped);
         }
-        
+
         public virtual InfusionSoft.Definition.ValidateCreditCardResult ValidateCreditCard(InfusionSoft.Definition.CreditCardData data)
         {
-            return Invoke(d => d.ValidateCreditCard(ApiKey, data));
+            var untyped = Invoke(d => d.ValidateCreditCard(ApiKey, data));
+            return new ValidateCreditCardResult(untyped);
         }
-        
+
         public virtual object GetAllShippingOptions()
         {
             return Invoke(d => d.GetAllShippingOptions(ApiKey));

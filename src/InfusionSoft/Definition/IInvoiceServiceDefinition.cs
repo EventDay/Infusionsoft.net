@@ -72,10 +72,10 @@ namespace InfusionSoft.Definition
         bool RecalculateTax(string apiKey, int invoiceId);
 
         [XmlRpcMethod("InvoiceService.validateCreditCard")]
-        ValidateCreditCardResult ValidateCreditCard(string apiKey, int creditCardId);
+        UntypedValidateCreditCardResult ValidateCreditCard(string apiKey, int creditCardId);
 
         [XmlRpcMethod("InvoiceService.validateCreditCard")]
-        ValidateCreditCardResult ValidateCreditCard(string apiKey, CreditCardData data);
+        UntypedValidateCreditCardResult ValidateCreditCard(string apiKey, CreditCardData data);
 
         [XmlRpcMethod("InvoiceService.getAllShippingOptions")]
         object GetAllShippingOptions(string apiKey);
