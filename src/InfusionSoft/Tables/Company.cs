@@ -305,7 +305,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("Validated")]
         [Access(Access.Read)]
-        public string Validated { get; set; }
+        public int Validated { get; set; }
 
         [XmlRpcMember("Website")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
