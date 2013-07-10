@@ -64,6 +64,11 @@ namespace InfusionSoft
         {
             return Invoke(d => d.Query(ApiKey, table, limit, page, queryData, selectedFields));
         }
+
+        public virtual System.Collections.Generic.IEnumerable<object> Query(string table, int limit, int page, System.Collections.IDictionary queryData, string[] selectedFields, string orderBy, bool asc)
+        {
+            return Invoke(d => d.Query(ApiKey, table, limit, page, queryData, selectedFields, orderBy, asc));
+        }
         
         public virtual int AddCustomField(string customFieldType, string displayName, string dataType, int headerId)
         {

@@ -40,6 +40,10 @@ namespace InfusionSoft.Definition
         IEnumerable<object> Query(string apiKey, string table, int limit, int page, IDictionary queryData,
                                   string[] selectedFields);
 
+        [XmlRpcMethod("DataService.query")]
+        IEnumerable<object> Query(string apiKey, string table, int limit, int page, IDictionary queryData,
+                                  string[] selectedFields, string orderBy, bool asc);
+
         [XmlRpcMethod("DataService.addCustomField")]
         int AddCustomField(string apiKey, string customFieldType, string displayName, string dataType, int headerId);
 
