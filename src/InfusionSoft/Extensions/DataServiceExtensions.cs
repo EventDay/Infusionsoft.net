@@ -26,10 +26,32 @@ namespace InfusionSoft
             return Query<T>(service, q => q.Empty(), p => p.IncludeAll());
         }
 
+        public static IEnumerable<T> Query<T>(this IDataService service, string orderBy) where T : ITable, new()
+        {
+            return Query<T>(service, q => q.Empty(), p => p.IncludeAll(), orderBy);
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, string orderBy, bool asc) where T : ITable, new()
+        {
+            return Query<T>(service, q => q.Empty(), p => p.IncludeAll(), orderBy, asc);
+        }
+
         public static IEnumerable<T> Query<T>(this IDataService service, Action<IQueryBuilder<T>> queryBuilder)
             where T : ITable, new()
         {
             return Query(service, queryBuilder, p => p.IncludeAll());
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, Action<IQueryBuilder<T>> queryBuilder, string orderBy)
+            where T : ITable, new()
+        {
+            return Query(service, queryBuilder, p => p.IncludeAll(), orderBy);
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, Action<IQueryBuilder<T>> queryBuilder, string orderBy, bool asc)
+            where T : ITable, new()
+        {
+            return Query(service, queryBuilder, p => p.IncludeAll(), orderBy, asc);
         }
 
         public static IEnumerable<T> Query<T>(this IDataService service, Action<IProjection<T>> projection)
@@ -38,19 +60,61 @@ namespace InfusionSoft
             return Query(service, q => q.Empty(), projection);
         }
 
+        public static IEnumerable<T> Query<T>(this IDataService service, Action<IProjection<T>> projection, string orderBy)
+            where T : ITable, new()
+        {
+            return Query(service, q => q.Empty(), projection, orderBy);
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, Action<IProjection<T>> projection, string orderBy, bool asc)
+            where T : ITable, new()
+        {
+            return Query(service, q => q.Empty(), projection, orderBy, asc);
+        }
+
         public static IEnumerable<T> Query<T>(this IDataService service, Action<IQueryBuilder<T>> queryBuilder,
                                               Action<IProjection<T>> projection)
             where T : ITable, new()
         {
 // ReSharper disable RedundantTypeArgumentsOfMethod
-            return GetAllPages<T, Action<IQueryBuilder<T>>, Action<IProjection<T>>>(service.Query, queryBuilder,
-                                                                                    projection);
+            return GetAllPages<T, Action<IQueryBuilder<T>>, Action<IProjection<T>>, string, bool>(service.Query, queryBuilder,
+                                                                                    projection, String.Empty, false);
+// ReSharper restore RedundantTypeArgumentsOfMethod
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, Action<IQueryBuilder<T>> queryBuilder,
+                                              Action<IProjection<T>> projection, string orderBy)
+            where T : ITable, new()
+        {
+// ReSharper disable RedundantTypeArgumentsOfMethod
+            return GetAllPages<T, Action<IQueryBuilder<T>>, Action<IProjection<T>>, string, bool>(service.Query, queryBuilder,
+                                                                                    projection, orderBy, false);
+// ReSharper restore RedundantTypeArgumentsOfMethod
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, Action<IQueryBuilder<T>> queryBuilder,
+                                              Action<IProjection<T>> projection, string orderBy, bool asc)
+            where T : ITable, new()
+        {
+// ReSharper disable RedundantTypeArgumentsOfMethod
+            return GetAllPages<T, Action<IQueryBuilder<T>>, Action<IProjection<T>>, string, bool>(service.Query, queryBuilder,
+                                                                                    projection, orderBy, asc);
 // ReSharper restore RedundantTypeArgumentsOfMethod
         }
 
         public static IEnumerable<T> Query<T>(this IDataService service, DataPage page) where T : ITable, new()
         {
             return Query<T>(service, page, builder => builder.Empty(), projection => projection.IncludeAll());
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, DataPage page, string orderBy) where T : ITable, new()
+        {
+            return Query<T>(service, page, builder => builder.Empty(), projection => projection.IncludeAll(), orderBy);
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, DataPage page, string orderBy, bool asc) where T : ITable, new()
+        {
+            return Query<T>(service, page, builder => builder.Empty(), projection => projection.IncludeAll(), orderBy, asc);
         }
 
         public static IEnumerable<T> Query<T>(this IDataService service, DataPage page,
@@ -60,14 +124,52 @@ namespace InfusionSoft
         }
 
         public static IEnumerable<T> Query<T>(this IDataService service, DataPage page,
+                                              Action<IQueryBuilder<T>> queryBuilder, string orderBy) where T : ITable, new()
+        {
+            return Query(service, page, queryBuilder, p => p.IncludeAll(), orderBy);
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, DataPage page,
+                                              Action<IQueryBuilder<T>> queryBuilder, string orderBy, bool asc) where T : ITable, new()
+        {
+            return Query(service, page, queryBuilder, p => p.IncludeAll(), orderBy, asc);
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, DataPage page,
                                               Action<IProjection<T>> projection) where T : ITable, new()
         {
             return Query(service, page, builder => builder.Empty(), projection);
         }
 
         public static IEnumerable<T> Query<T>(this IDataService service, DataPage page,
+                                             Action<IProjection<T>> projection, string orderBy) where T : ITable, new()
+        {
+            return Query(service, page, builder => builder.Empty(), projection, orderBy);
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, DataPage page,
+                                             Action<IProjection<T>> projection, string orderBy, bool asc) where T : ITable, new()
+        {
+            return Query(service, page, builder => builder.Empty(), projection, orderBy, asc);
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, DataPage page,
                                               Action<IQueryBuilder<T>> queryBuilder,
                                               Action<IProjection<T>> fieldSelection) where T : ITable, new()
+        {
+            return Query(service, page, queryBuilder, fieldSelection, String.Empty, false);
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, DataPage page,
+                                             Action<IQueryBuilder<T>> queryBuilder,
+                                             Action<IProjection<T>> fieldSelection, string orderBy) where T : ITable, new()
+        {
+            return Query(service, page, queryBuilder, fieldSelection, orderBy, false);
+        }
+
+        public static IEnumerable<T> Query<T>(this IDataService service, DataPage page,
+                                              Action<IQueryBuilder<T>> queryBuilder,
+                                              Action<IProjection<T>> fieldSelection, string orderBy, bool asc) where T : ITable, new()
         {
             var query = new QueryBuilder<T>();
             queryBuilder(query);
@@ -82,9 +184,18 @@ namespace InfusionSoft
             var methodListenerProvider = service.MethodListenerProvider;
             var wrapper = new CustomDataServiceWrapper(configuration, methodListenerProvider);
 
-            return wrapper.Invoke<IEnumerable<object>, T[]>(d => d.Query(configuration.GetApiKey(),
-                                                                         typeof (T).Name, page.Size,
-                                                                         page.Number, data, selectedFields));
+            if (String.IsNullOrEmpty(orderBy))
+            {
+                return wrapper.Invoke<IEnumerable<object>, T[]>(d => d.Query(configuration.GetApiKey(),
+                                                                             typeof(T).Name, page.Size,
+                                                                             page.Number, data, selectedFields));
+            }
+            else
+            {
+                return wrapper.Invoke<IEnumerable<object>, T[]>(d => d.Query(configuration.GetApiKey(),
+                                                                             typeof(T).Name, page.Size,
+                                                                             page.Number, data, selectedFields, orderBy, asc));
+            }
         }
 
         public static IEnumerable<T> FindByField<T>(this IDataService service, Action<IFieldQuery<T>> query)
@@ -192,6 +303,30 @@ namespace InfusionSoft
             do
             {
                 collection = func(page, arg1, arg2).ToArray();
+
+                list.AddRange(collection);
+
+                page = page.Next();
+
+                //NOTE: Don't try to fetch more records if we know there aren't any more.
+                if (collection.Length < DataPage.MaxSize)
+                    break;
+            } while (collection.Length > 0);
+
+            return list;
+        }
+
+        public static IEnumerable<T> GetAllPages<T, T1, T2, T3, T4>(Func<DataPage, T1, T2, string, bool, IEnumerable<T>> func, T1 arg1,
+                                                           T2 arg2, string orderBy, bool asc)
+        {
+            var list = new List<T>();
+            T[] collection;
+
+            DataPage page = DataPage.First;
+
+            do
+            {
+                collection = func(page, arg1, arg2, orderBy, asc).ToArray();
 
                 list.AddRange(collection);
 
