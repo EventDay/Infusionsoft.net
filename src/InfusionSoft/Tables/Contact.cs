@@ -124,7 +124,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("CompanyID")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
-        public int CompanyId { get; set; }
+        public int CompanyID { get; set; }
 
         [XmlRpcMember("ContactNotes")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
