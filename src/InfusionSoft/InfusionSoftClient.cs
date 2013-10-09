@@ -40,6 +40,7 @@ namespace InfusionSoft
             SearchService = new SearchServiceWrapper(configuration, this);
             ShippingService = new ShippingServiceWrapper(configuration, this);
             WebFormService = new WebFormServiceWrapper(configuration, this);
+            FunnelService = new FunnelServiceWrapper(configuration, this);
         }
 
         #region IInfusionSoftClient Members
@@ -59,6 +60,8 @@ namespace InfusionSoft
         public IDiscountService DiscountService { get; private set; }
 
         public IFileService FileService { get; private set; }
+
+        public IFunnelService FunnelService { get; private set; }
 
         public IOrderService OrderService { get; private set; }
 

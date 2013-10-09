@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="Definition\IFunnelServiceDefinition.cs" />
     <Compile Include="Extensions\ContactServiceExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -71,6 +72,7 @@
     <Compile Include="Extensions\ExtendParameterBuilder.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IFunnelService.cs" />
     <Compile Include="IMethodListener.cs" />
     <Compile Include="Definition\ChargeInvoiceResult.cs" />
     <Compile Include="Definition\CreditCardData.cs" />
@@ -274,6 +276,7 @@
     <Compile Include="Wrappers\DiscountServiceWrapper.cs" />
     <Compile Include="Wrappers\EmailServiceWrapper.cs" />
     <Compile Include="Wrappers\FileServiceWrapper.cs" />
+    <Compile Include="Wrappers\FunnelServiceWrapper.cs" />
     <Compile Include="Wrappers\InvoiceServiceWrapper.cs" />
     <Compile Include="Wrappers\OrderServiceWrapper.cs" />
     <Compile Include="Wrappers\ProductServiceWrapper.cs" />
