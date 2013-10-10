@@ -35,9 +35,9 @@ namespace InfusionSoft
         {
         }
         
-        public virtual object AchieveGoal(string callName, int contactId)
+        public virtual object AchieveGoal(string integration, string callName, int contactId)
         {
-            return Invoke(d => d.AchieveGoal(ApiKey, callName, contactId));
+            return Invoke(d => d.AchieveGoal(ApiKey, integration, callName, contactId));
         }
     }
 }

@@ -31,6 +31,6 @@ namespace InfusionSoft
     public interface IFunnelService : InfusionSoft.IService
     {
         
-        object AchieveGoal(string callName, int contactId);
+        object AchieveGoal(string integration, string callName, int contactId);
     }
 }
