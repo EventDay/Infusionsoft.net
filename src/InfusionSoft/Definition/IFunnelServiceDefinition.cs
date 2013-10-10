@@ -16,6 +16,6 @@ namespace InfusionSoft.Definition
     public interface IFunnelServiceDefinition : IServiceDefinition
     {
         [XmlRpcMethod("FunnelService.achieveGoal")]
-        object AchieveGoal(string integration, string callName, int contactId);
+        object AchieveGoal(string apiKey, string integration, string callName, int contactId);
     }
 }
