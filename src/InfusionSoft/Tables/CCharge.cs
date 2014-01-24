@@ -28,11 +28,11 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("PaymentId")]
         [Access(Access.Read)]
-        public string PaymentId { get; set; }
+        public int PaymentId { get; set; }
 
         [XmlRpcMember("MerchantId")]
         [Access(Access.Read)]
-        public string MerchantId { get; set; }
+        public int MerchantId { get; set; }
 
         [XmlRpcMember("OrderNum")]
         [Access(Access.Read)]
