@@ -89,6 +89,6 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("Synced")]
         [Access(Access.Read)]
-        public int Synced { get; set; }
+        public bool Synced { get; set; }
     }
 }
