@@ -201,6 +201,7 @@
     <Compile Include="Support\QueryBuilder.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Support\QueryBuilderExtensions.cs" />
     <Compile Include="Support\Serialization\XmlRpcDeserializer.cs" />
     <Compile Include="Support\Serialization\XmlRpcResponseDeserializer.cs" />
     <Compile Include="Support\StartsWithValue.cs">
