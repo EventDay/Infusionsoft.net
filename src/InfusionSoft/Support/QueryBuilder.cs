@@ -40,7 +40,7 @@ namespace InfusionSoft
         public IQueryBuilder<T> Add<TV>(Expression<Func<T, TV>> expression, TV value, ValuePosition valuePosition)
         {
             string name = Express.PropertyWithLambda(expression).Name;
-
+            name = this.GetColumnName(name);
             _dictionary.Add(name, BuildPositionalValue(valuePosition, value));
 
             return this;
