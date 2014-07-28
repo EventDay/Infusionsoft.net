@@ -1,6 +1,6 @@
 #region License
 
-// Copyright (c) 2012, EventDay
+// Copyright (c) 2014, EventDay
 // All rights reserved.
 // 
 // Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -24,6 +24,11 @@ namespace InfusionSoft
 
         IQueryBuilder<T> Add<TV>(Expression<Func<T, TV>> expression, TV value, ValuePosition valuePosition);
         IQueryBuilder<T> AddCustomField<TV>(string field, TV value, ValuePosition valuePosition);
+
+        IQueryBuilder<T> AddCustomQuery<TV>(Expression<Func<T, TV>> expression, object value,
+            ValuePosition valuePosition);
+
+        IQueryBuilder<T> AddCustomQuery<TV>(Expression<Func<T, TV>> expression, object value);
 
         void Empty();
     }

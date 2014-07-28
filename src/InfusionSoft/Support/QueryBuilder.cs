@@ -84,5 +84,18 @@ namespace InfusionSoft
 
             return valuePosition.BuildValue(value);
         }
+
+
+        public IQueryBuilder<T> AddCustomQuery<TV>(Expression<Func<T, TV>> expression, object value)
+        {
+            return AddCustomQuery(expression, value, ValuePosition.Default);
+        }
+
+        public IQueryBuilder<T> AddCustomQuery<TV>(Expression<Func<T, TV>> expression, object value,
+            ValuePosition valuePosition)
+        {
+            _dictionary.Add(Express.PropertyWithLambda(expression).Name, BuildPositionalValue(valuePosition, value));
+            return this;
+        }
     }
 }
