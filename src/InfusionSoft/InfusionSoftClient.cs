@@ -22,15 +22,6 @@ namespace InfusionSoft
         public InfusionSoftClient(IInfusionSoftConfiguration configuration)
         {
             Configuration = configuration;
-            ServicePointManager.ServerCertificateValidationCallback +=
-                (sender, certificate, chain, sslpolicyerrors) => true;
-            
-            //Workaround for infusionsoft change.
-            //http://community.infusionsoft.com/showthread.php/15371-The-request-was-aborted-Could-not-create-SSL-TLS-secure-channel
-            //Oct 16th, 2014 around 16:30 - Infusionsoft stopped allowing SSL3 connnetions
-            //dropping back to (what used to be standard) TLS connections
-            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
-
             ApplicationName = configuration.ApplicationName;
             MethodListener = new NullMethodListener();
 
