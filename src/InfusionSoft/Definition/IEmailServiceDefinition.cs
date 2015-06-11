@@ -47,6 +47,10 @@ namespace InfusionSoft.Definition
                        string bccAddresses, string contentType, string subject, string htmlBody, string textBody,
                        int templateId);
 
+        [XmlRpcMethod("APIEmailService.sendEmail")]
+        bool SendEmail(string apiKey, int[] contactList, string fromAddress, string toAddress, string ccAddresses,
+                       string bccAddresses, string contentType, string subject, string htmlBody, string textBody);
+
         [XmlRpcMethod("APIEmailService.sendTemplate")]
         bool SendTemplate(string apiKey, int[] contactList, string templateId);
 
