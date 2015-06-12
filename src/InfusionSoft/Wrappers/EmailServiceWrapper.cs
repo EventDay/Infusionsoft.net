@@ -74,6 +74,11 @@ namespace InfusionSoft
         {
             return Invoke(d => d.SendEmail(ApiKey, contactList, fromAddress, toAddress, ccAddresses, bccAddresses, contentType, subject, htmlBody, textBody, templateId));
         }
+
+        public virtual bool SendEmail(int[] contactList, string fromAddress, string toAddress, string ccAddresses, string bccAddresses, string contentType, string subject, string htmlBody, string textBody)
+        {
+            return Invoke(d => d.SendEmail(ApiKey, contactList, fromAddress, toAddress, ccAddresses, bccAddresses, contentType, subject, htmlBody, textBody));
+        }
         
         public virtual bool SendTemplate(int[] contactList, string templateId)
         {

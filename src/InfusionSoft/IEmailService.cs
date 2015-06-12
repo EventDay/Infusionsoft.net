@@ -46,6 +46,8 @@ namespace InfusionSoft
         bool OptOut(string email, string optOutreason);
         
         bool SendEmail(int[] contactList, string fromAddress, string toAddress, string ccAddresses, string bccAddresses, string contentType, string subject, string htmlBody, string textBody, int templateId);
+
+        bool SendEmail(int[] contactList, string fromAddress, string toAddress, string ccAddresses, string bccAddresses, string contentType, string subject, string htmlBody, string textBody);
         
         bool SendTemplate(int[] contactList, string templateId);
         
