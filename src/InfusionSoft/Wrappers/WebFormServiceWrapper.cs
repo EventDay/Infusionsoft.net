@@ -39,5 +39,10 @@ namespace InfusionSoft
         {
             return Invoke(d => d.GetMap(ApiKey));
         }
+
+        public virtual string GetHtml(int webFormId)
+        {
+          return Invoke(d => d.GetHtml(ApiKey, webFormId));
+        }
     }
 }

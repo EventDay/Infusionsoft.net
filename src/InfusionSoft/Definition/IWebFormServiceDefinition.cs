@@ -19,5 +19,8 @@ namespace InfusionSoft.Definition
     {
         [XmlRpcMethod("WebFormService.getMap")]
         object GetMap(string apiKey);
+
+        [XmlRpcMethod("WebFormService.getHTML")]
+        string GetHtml(string apiKey, int webFormId);
     }
 }

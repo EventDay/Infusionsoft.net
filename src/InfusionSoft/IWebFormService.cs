@@ -30,7 +30,7 @@ namespace InfusionSoft
     
     public interface IWebFormService : InfusionSoft.IService
     {
-        
         object GetMap();
+        string GetHtml(int webFormId);
     }
 }
