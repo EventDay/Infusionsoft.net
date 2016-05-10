@@ -20,7 +20,7 @@ namespace InfusionSoft.Definition
     {
         public bool Successful { get; set; }
         public string Code { get; set; }
-        public int RefNum { get; set; }
+        public string RefNum { get; set; }
         public string Message { get; set; }
     }
 }
