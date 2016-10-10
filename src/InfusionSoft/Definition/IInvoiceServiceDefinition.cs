@@ -66,7 +66,7 @@ namespace InfusionSoft.Definition
         object GetPayments(string apiKey, int invoiceId);
 
         [XmlRpcMethod("InvoiceService.locateExistingCard")]
-        int LocateExistingCard(string apiKey, int contactId, int last4);
+        int LocateExistingCard(string apiKey, int contactId, string last4);
 
         [XmlRpcMethod("InvoiceService.recalculateTax")]
         bool RecalculateTax(string apiKey, int invoiceId);

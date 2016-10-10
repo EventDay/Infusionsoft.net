@@ -99,7 +99,7 @@ namespace InfusionSoft
             return Invoke(d => d.GetPayments(ApiKey, invoiceId));
         }
         
-        public virtual int LocateExistingCard(int contactId, int last4)
+        public virtual int LocateExistingCard(int contactId, string last4)
         {
             return Invoke(d => d.LocateExistingCard(ApiKey, contactId, last4));
         }

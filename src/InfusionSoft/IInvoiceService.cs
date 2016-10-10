@@ -57,7 +57,7 @@ namespace InfusionSoft
         
         object GetPayments(int invoiceId);
         
-        int LocateExistingCard(int contactId, int last4);
+        int LocateExistingCard(int contactId, string last4);
         
         bool RecalculateTax(int invoiceId);
         
