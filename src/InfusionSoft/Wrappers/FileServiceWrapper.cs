@@ -45,9 +45,9 @@ namespace InfusionSoft
             return Invoke(d => d.GetDownloadUrl(ApiKey, fileId));
         }
         
-        public virtual object UploadFile(string fileName, string base64EncodedData, int contactId)
+        public virtual object UploadFile(int contactId, string fileName, string base64EncodedData)
         {
-            return Invoke(d => d.UploadFile(ApiKey, fileName, base64EncodedData, contactId));
+            return Invoke(d => d.UploadFile(ApiKey, contactId, fileName, base64EncodedData));
         }
         
         public virtual object ReplaceFile(int fileId, string base64EncodedData)

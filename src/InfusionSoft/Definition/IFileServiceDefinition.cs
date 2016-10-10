@@ -24,7 +24,7 @@ namespace InfusionSoft.Definition
         object GetDownloadUrl(string apiKey, int fileId);
 
         [XmlRpcMethod("FileService.uploadFile")]
-        object UploadFile(string apiKey, string fileName, string base64EncodedData, int contactId);
+        object UploadFile(string apiKey, int contactId, string fileName, string base64EncodedData);
 
         [XmlRpcMethod("FileService.replaceFile")]
         object ReplaceFile(string apiKey, int fileId, string base64EncodedData);
