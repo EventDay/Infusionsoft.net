@@ -22,6 +22,10 @@ namespace InfusionSoft
         public InfusionSoftException(XmlRpcException e) : base(e.Message, e)
         {
         }
+        
+        public InfusionSoftException(XmlRpcFaultException e) : base(e.Message, e)
+        {
+        }
 
         public InfusionSoftException(string message) : base(message)
         {
