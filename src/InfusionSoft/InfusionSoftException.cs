@@ -19,7 +19,7 @@ namespace InfusionSoft
     [Serializable]
     public class InfusionSoftException : ApplicationException
     {
-        public InfusionSoftException(XmlRpcException e) : base(e.Message)
+        public InfusionSoftException(XmlRpcException e) : base(e.Message, e)
         {
         }
 
