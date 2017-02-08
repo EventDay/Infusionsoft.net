@@ -52,6 +52,8 @@ namespace InfusionSoft.Tables
     [XmlRpcMissingMapping(MappingAction.Ignore)]
     public class Contact : Table
     {
+        //https://developer.infusionsoft.com/docs/table-schema/
+
         private static readonly IEqualityComparer<Contact> IdComparerInstance = new IdEqualityComparer();
 
         [XmlRpcMember("Address1Type")]
@@ -198,6 +200,10 @@ namespace InfusionSoft.Tables
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
         public string JobTitle { get; set; }
 
+        //[XmlRpcMember("Language")]
+        //[Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
+        //public string Language { get; set; }
+
         [XmlRpcMember("LastName")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
         public string LastName { get; set; }
@@ -337,6 +343,10 @@ namespace InfusionSoft.Tables
         [XmlRpcMember("Suffix")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
         public string Suffix { get; set; }
+
+        [XmlRpcMember("TimeZone")]
+        [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
+        public string TimeZone { get; set; }
 
         [XmlRpcMember("Title")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
