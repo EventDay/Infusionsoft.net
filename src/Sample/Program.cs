@@ -27,13 +27,15 @@ namespace Sample
 
         private static void OAuth()
         {
-            const string application = "YOUR APPLICATION NAME HERE";
-            const string accessToken = "YOUR OAUTH 2 ACCESS_TOKEN HERE";
+            const string application = "rp354";
+            const string accessToken = "8uu7mt53t23krapz7q6we67t";
 
             var customer = new OAuthCustomer(application, accessToken);
             var client = customer.Connect();
 
             var users = client.DataService.Query<User>();
+
+            var currentUser = client.DataService.GetUserInfo();
 
             Console.Out.WriteLine("done");
             Console.ReadLine();

@@ -32,5 +32,7 @@ namespace InfusionSoft
         {
             return base.GetTemporaryKey(username, _hasher.GenerateHash(password));
         }
+
+        
     }
 }
