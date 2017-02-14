@@ -11,10 +11,14 @@
 
 #endregion
 
+using System;
+
 namespace InfusionSoft
 {
     internal class CustomerInfusionSoftConfiguration : IInfusionSoftConfiguration
     {
+        private const string UriMask = "https://{0}.infusionsoft.com/api/xmlrpc";
+
         public CustomerInfusionSoftConfiguration(string appName, string key)
         {
             ApplicationName = appName.ToLowerInvariant();
@@ -30,6 +34,17 @@ namespace InfusionSoft
         public virtual string GetApiKey()
         {
             return ApiKey;
+        }
+
+        private Uri _uri;
+        public Uri GetApiUri()
+        {
+            if (_uri == null)
+            {
+                _uri = new Uri(string.Format(UriMask, ApplicationName));
+            }
+
+            return _uri;
         }
 
         #endregion
