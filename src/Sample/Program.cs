@@ -27,8 +27,8 @@ namespace Sample
 
         private static void OAuth()
         {
-            const string application = "rp354";
-            const string accessToken = "8uu7mt53t23krapz7q6we67t";
+            const string application = "YOUR APPLICATION NAME HERE";
+            const string accessToken = "YOUR OAUTH 2 ACCESS_TOKEN HERE";
 
             var customer = new OAuthCustomer(application, accessToken);
             var client = customer.Connect();
