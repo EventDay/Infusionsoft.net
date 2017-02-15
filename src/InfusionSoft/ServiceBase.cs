@@ -58,7 +58,7 @@ namespace InfusionSoft
             }
             catch (XmlRpcFaultException e)
             {
-                throw new InfusionSoftException(e.Message);
+                throw new InfusionSoftException(e);
             }
         }
 
