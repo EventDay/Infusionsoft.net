@@ -15,8 +15,8 @@ namespace InfusionSoft
 {
     public class Customer
     {
-        private readonly string _apiKey;
-        private readonly string _application;
+        protected readonly string _apiKey;
+        protected readonly string _application;
 
         public Customer(string application, string apiKey)
         {
@@ -24,10 +24,11 @@ namespace InfusionSoft
             _apiKey = apiKey;
         }
 
-        public IInfusionSoftClient Connect()
+        public virtual IInfusionSoftClient Connect()
         {
             var configuration = new CustomerInfusionSoftConfiguration(_application, _apiKey);
             return new InfusionSoftClient(configuration);
         }
     }
+
 }

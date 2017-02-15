@@ -339,5 +339,13 @@ namespace InfusionSoft
 
             return list;
         }
+
+        public static object GetUserInfo(this IDataService service)
+        {
+            var configuration = service.Configuration;
+            var methodListenerProvider = service.MethodListenerProvider;
+            var wrapper = new DataServiceWrapper(configuration, methodListenerProvider);
+            return wrapper.Invoke<object, object>(d => d.GetUserInfo());
+        }
     }
 }

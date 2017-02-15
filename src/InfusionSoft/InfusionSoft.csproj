@@ -114,6 +114,8 @@
     <Compile Include="InfusionsoftProxy.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="OAuthCustomer.cs" />
+    <Compile Include="OAuthCustomerInfusionSoftConfiguration.cs" />
     <Compile Include="PasswordHasher.cs">
       <SubType>Code</SubType>
     </Compile>

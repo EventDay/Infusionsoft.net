@@ -52,6 +52,8 @@ namespace InfusionSoft.Tables
     [XmlRpcMissingMapping(MappingAction.Ignore)]
     public class Contact : Table
     {
+        //https://developer.infusionsoft.com/docs/table-schema/
+
         private static readonly IEqualityComparer<Contact> IdComparerInstance = new IdEqualityComparer();
 
         [XmlRpcMember("Address1Type")]
@@ -118,13 +120,13 @@ namespace InfusionSoft.Tables
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
         public string Company { get; set; }
 
-        [XmlRpcMember("AccountId")]
-        [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
-        public int AccountId { get; set; }
+        //[XmlRpcMember("AccountId")]
+        //[Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
+        //public int AccountId { get; set; }
 
         [XmlRpcMember("CompanyID")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
-        public int CompanyID { get; set; }
+        public string CompanyId { get; set; }
 
         [XmlRpcMember("ContactNotes")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
@@ -148,7 +150,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("CreatedBy")]
         [Access(Access.Read)]
-        public int CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         [XmlRpcMember("DateCreated")]
         [Access(Access.Read)]
@@ -192,11 +194,15 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("Id")]
         [Access(Access.Read)]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [XmlRpcMember("JobTitle")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
         public string JobTitle { get; set; }
+
+        //[XmlRpcMember("Language")]
+        //[Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
+        //public string Language { get; set; }
 
         [XmlRpcMember("LastName")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
@@ -208,7 +214,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("LastUpdatedBy")]
         [Access(Access.Read)]
-        public int LastUpdatedBy { get; set; }
+        public string LastUpdatedBy { get; set; }
 
         [XmlRpcMember("Leadsource")]
         [Access(Access.Edit | Access.Add | Access.Read)]
@@ -216,7 +222,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("LeadSourceId")]
         [Access(Access.Edit | Access.Add | Access.Read)]
-        public int LeadSourceId { get; set; }
+        public string LeadSourceId { get; set; }
 
         [XmlRpcMember("MiddleName")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
@@ -228,7 +234,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("OwnerID")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
-        public int OwnerId { get; set; }
+        public string OwnerId { get; set; }
 
         [XmlRpcMember("Password")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
@@ -338,6 +344,10 @@ namespace InfusionSoft.Tables
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
         public string Suffix { get; set; }
 
+        [XmlRpcMember("TimeZone")]
+        [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
+        public string TimeZone { get; set; }
+
         [XmlRpcMember("Title")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
         public string Title { get; set; }
@@ -348,7 +358,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("Validated")]
         [Access(Access.Read)]
-        public string Validated { get; set; }
+        public int Validated { get; set; }
 
         [XmlRpcMember("Website")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
@@ -384,7 +394,9 @@ namespace InfusionSoft.Tables
 
             public int GetHashCode(Contact obj)
             {
-                return obj.Id;
+                var intId = 0;
+                var test = Int32.TryParse(obj.Id, out intId);
+                return intId;
             }
         }
     }

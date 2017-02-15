@@ -20,7 +20,7 @@ namespace InfusionSoft.Tables
     {
         [XmlRpcMember("Id")]
         [Access(Access.Read)]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [XmlRpcMember("GroupName")]
         [Access(Access.Edit | Access.Add | Access.Read)]
@@ -28,7 +28,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("GroupCategoryId")]
         [Access(Access.Edit | Access.Add | Access.Read)]
-        public int GroupCategoryId { get; set; }
+        public string GroupCategoryId { get; set; }
 
         [XmlRpcMember("GroupDescription")]
         [Access(Access.Edit | Access.Add | Access.Read)]

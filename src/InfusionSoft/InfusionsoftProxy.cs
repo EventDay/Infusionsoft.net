@@ -21,7 +21,7 @@ namespace InfusionSoft
 {
     internal class InfusionsoftProxy<TService> where TService : IServiceDefinition
     {
-        private const string UriMask = "https://{0}.infusionsoft.com/api/xmlrpc";
+        
         private const string UserAgent = "InfusionSoft .NET SDK";
         private readonly IInfusionSoftConfiguration _configuration;
         private readonly IMethodListenerProvider _listenerProvider;
@@ -31,7 +31,7 @@ namespace InfusionSoft
         {
             _configuration = configuration;
             _listenerProvider = listenerProvider;
-            _uri = new Uri(string.Format(UriMask, _configuration.ApplicationName));
+            _uri = configuration.GetApiUri();
         }
 
         public TResponse Invoke<TResponse>(Func<TService, TResponse> method)
