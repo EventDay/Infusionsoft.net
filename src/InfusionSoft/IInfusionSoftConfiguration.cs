@@ -11,11 +11,14 @@
 
 #endregion
 
+using System;
+
 namespace InfusionSoft
 {
     public interface IInfusionSoftConfiguration
     {
         string ApplicationName { get; }
         string GetApiKey();
+        Uri GetApiUri();
     }
 }
