@@ -42,9 +42,8 @@ namespace InfusionSoft
         System.Collections.Generic.IEnumerable<object> FindByField(string table, int limit, int page, string fieldName, object fieldValue, string[] returnFields);
         
         System.Collections.Generic.IEnumerable<object> Query(string table, int limit, int page, System.Collections.IDictionary queryData, string[] selectedFields);
-        
+
         System.Collections.Generic.IEnumerable<object> Query(string table, int limit, int page, System.Collections.IDictionary queryData, string[] selectedFields, string orderBy, bool asc);
-        
         int AddCustomField(string customFieldType, string displayName, string dataType, int headerId);
         
         int AuthenticateUser(string username, string passwordHash);

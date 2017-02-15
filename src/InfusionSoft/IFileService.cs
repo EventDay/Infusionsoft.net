@@ -35,7 +35,7 @@ namespace InfusionSoft
         
         object GetDownloadUrl(int fileId);
         
-        object UploadFile(string fileName, string base64EncodedData, int contactId);
+        object UploadFile(int contactId, string fileName, string base64EncodedData);
         
         object ReplaceFile(int fileId, string base64EncodedData);
         
