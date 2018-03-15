@@ -22,6 +22,10 @@ namespace InfusionSoft
         public InfusionSoftClient(IInfusionSoftConfiguration configuration)
         {
             Configuration = configuration;
+
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslpolicyerrors) => true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             ApplicationName = configuration.ApplicationName;
             MethodListener = new NullMethodListener();
 
