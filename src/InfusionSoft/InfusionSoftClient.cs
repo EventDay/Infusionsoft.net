@@ -23,7 +23,8 @@ namespace InfusionSoft
         {
             Configuration = configuration;
 
-            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslpolicyerrors) => true;
+//            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslpolicyerrors) => true;
+//            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             ApplicationName = configuration.ApplicationName;

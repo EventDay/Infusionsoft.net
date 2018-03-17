@@ -21,8 +21,8 @@ namespace Sample
     {
         private static void Main()
         {
-            // LegacyAuth();
-            OAuth();
+             LegacyAuth();
+//            OAuth();
         }
 
         private static void OAuth()
@@ -43,13 +43,17 @@ namespace Sample
 
         private static void LegacyAuth()
         {
-            const string application = "YOUR APPLICATION NAME HERE";
-            const string apiKey = "YOUR API KEY HERE";
+            const string application = "eventday";
+            const string apiKey = "2d1e9b4b0d18f0d7471577b32366fb0b";
 
-            var customer = new Customer(application, apiKey);
-            var client = customer.Connect();
+            var vendor = new Vendor(apiKey);
 
-            client.MethodListener = new ConsoleMethodListener();
+            var client = vendor.Connect(application, "josh.vorves@eventday.com", "jtMZ4B3C0EDt");
+            
+//            var customer = new Customer(application, apiKey);
+//            var client = customer.Connect();
+//
+//            client.MethodListener = new ConsoleMethodListener();
 
             //UPDATE a contact
             Console.Out.WriteLine(client.ContactService.Update(105, setter =>
