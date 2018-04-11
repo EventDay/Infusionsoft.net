@@ -126,7 +126,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("CompanyID")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
-        public string CompanyId { get; set; }
+        public int CompanyId { get; set; }
 
         [XmlRpcMember("ContactNotes")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
@@ -150,7 +150,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("CreatedBy")]
         [Access(Access.Read)]
-        public string CreatedBy { get; set; }
+        public int CreatedBy { get; set; }
 
         [XmlRpcMember("DateCreated")]
         [Access(Access.Read)]
@@ -194,7 +194,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("Id")]
         [Access(Access.Read)]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [XmlRpcMember("JobTitle")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
@@ -214,7 +214,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("LastUpdatedBy")]
         [Access(Access.Read)]
-        public string LastUpdatedBy { get; set; }
+        public int LastUpdatedBy { get; set; }
 
         [XmlRpcMember("Leadsource")]
         [Access(Access.Edit | Access.Add | Access.Read)]
@@ -222,7 +222,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("LeadSourceId")]
         [Access(Access.Edit | Access.Add | Access.Read)]
-        public string LeadSourceId { get; set; }
+        public int LeadSourceId { get; set; }
 
         [XmlRpcMember("MiddleName")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
@@ -234,7 +234,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("OwnerID")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
-        public string OwnerId { get; set; }
+        public int OwnerId { get; set; }
 
         [XmlRpcMember("Password")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
@@ -358,7 +358,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("Validated")]
         [Access(Access.Read)]
-        public int Validated { get; set; }
+        public string Validated { get; set; }
 
         [XmlRpcMember("Website")]
         [Access(Access.Edit | Access.Delete | Access.Add | Access.Read)]
@@ -394,9 +394,7 @@ namespace InfusionSoft.Tables
 
             public int GetHashCode(Contact obj)
             {
-                var intId = 0;
-                var test = Int32.TryParse(obj.Id, out intId);
-                return intId;
+                return obj.Id;
             }
         }
     }

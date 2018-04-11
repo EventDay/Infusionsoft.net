@@ -307,7 +307,7 @@ namespace InfusionSoft.Tables
 
         [XmlRpcMember("Contact.LastUpdatedBy")]
         [Access(Access.Read)]
-        public string ContactLastUpdatedBy { get; set; }
+        public int ContactLastUpdatedBy { get; set; }
 
         [XmlRpcMember("Contact.Leadsource")]
         [Access(Access.Read)]
